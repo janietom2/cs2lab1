@@ -39,7 +39,7 @@ public class caloriesCounter {
         int x = 0;
 
         try {
-            fileScanner = new Scanner(new File("D:/Development/cs2lab1/src/dat.txt"));
+            fileScanner = new Scanner(new File("D:/Development/cs2lab1/src/data.txt"));
         } catch (Exception e) {
             file.f.format("Error: " + e.getMessage());
             System.out.println(e.getMessage());
@@ -47,14 +47,21 @@ public class caloriesCounter {
 
         }
 
-        while (fileScanner.hasNext()){
+            try{
+                while (fileScanner.hasNext()){
 
-            breakFast[x] = Integer.parseInt(fileScanner.next());
-            lunch[x] = Integer.parseInt(fileScanner.next());
-            dinner[x] = Integer.parseInt(fileScanner.next());
-            x++;
+                    breakFast[x] = Integer.parseInt(fileScanner.next());
+                    lunch[x] = Integer.parseInt(fileScanner.next());
+                    dinner[x] = Integer.parseInt(fileScanner.next());
+                    x++;
 
-        }
+                }
+            }
+             catch (Exception e){
+                 file.f.format("Error: " + e.getMessage());
+                 System.out.println(e.getMessage());
+                 file.close();
+            }
 
         System.out.println("Each day calories:");
         file.f.format("Each day calories: \n");
